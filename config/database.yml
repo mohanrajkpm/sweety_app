@@ -1,0 +1,17 @@
+default: &default
+  #pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  #timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: mysql
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: sweety_dev
+
+test:
+  <<: *default
+  database: sweety_test
