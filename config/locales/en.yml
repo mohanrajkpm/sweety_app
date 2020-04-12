@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    created_successfully: '%{model_name} created successfully'
+    updated_successfully: '%{model_name} updated successfully'
+  glucose_levels:
+    validations:
+      limit_msg: "Your exceeded per day limit"

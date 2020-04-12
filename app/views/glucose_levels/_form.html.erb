@@ -1,0 +1,30 @@
+<h1>Enter your glucose level</h1>
+ 
+ <% if !!flash[:errors] %>
+ 	<div class="panel panel-warning errors">
+		<div class="panel-heading">
+	  	<h5><i class="glyphicon glyphicon-exclamation-sign"></i> Found errors while saving</h5>
+	  </div>
+	  <ul class="panel-body">
+	  	<% flash[:errors].each do |e| %>
+	    	<p><%= e %></p> <br>
+	    <% end %>
+	  </ul>
+    </div>
+ <% end %>
+
+
+<%= simple_form_for @glucose_level, url: glucose_levels_path,
+  wrapper: :horizontal_form do |f| %>
+
+
+  <%= f.input :glucose %>
+
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>
+
