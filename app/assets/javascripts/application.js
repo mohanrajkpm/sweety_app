@@ -16,3 +16,14 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
+
+$(document).ready(function(){
+ // $('#search_report_date').datepicker();
+ $('#search_report_date').datepicker({
+    format: 'yyyy-mm-dd'
+ });
+});

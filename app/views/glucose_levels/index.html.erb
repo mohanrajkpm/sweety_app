@@ -1,23 +1,12 @@
 <div class="container">
   <h1>Welcome to patient glucose levels report</h1>
 </div>
+<%= simple_form_for :search, url: glucose_levels_path, method: :get, remote: true,  html: { class: 'form-inline' } do |f| %>
+  <%= f.input :report_type, collection: report_collection, :prompt => "Choose a Report type"%>
+  <%= f.input :report_date, label: "Report Date" %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
 
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Levels</th>
-      <th scope="col">Created at</th>
-    </tr>
-  </thead>
-  <tbody>
-	<% @glucose_levels.each do |gl| %>
-    <tr>
-      <td><%= gl.glucose %></td>
-      <td><%= gl.created_at.strftime("%Y-%m-%d") %></td>
-    </tr>
-   <% end %>
-  </tbody>
-</table>
-
+<div class= 'glucose_level_div'>
+  <%= render 'list' %>
+</div>
