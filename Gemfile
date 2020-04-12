@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'simple_form'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
