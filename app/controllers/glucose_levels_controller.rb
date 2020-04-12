@@ -1,7 +1,12 @@
 class GlucoseLevelsController < ApplicationController
 	before_action :authenticate_user!
+
 	def new
 		@glucose_level = GlucoseLevel.new
+	end
+	
+	def index
+		@glucose_levels = GlucoseLevel.where(user_id: current_user.id)
 	end
 
 	def create
