@@ -1,6 +1,6 @@
 class GlucoseLevelsController < ApplicationController
-	before_action :authenticate_user!
-
+	#before_action :authenticate_user!
+	load_and_authorize_resource
 	def new
 		@glucose_level = GlucoseLevel.new
 	end
@@ -19,14 +19,14 @@ class GlucoseLevelsController < ApplicationController
 				beginning_of_day = beginning_month_of_day report_date	
 				end_of_day = end_month_of_day report_date 
 				conditions = ["Date(created_at) BETWEEN '#{beginning_of_day}' AND '#{end_of_day}' "]
-			end	
-		else
-			@glucose_levels = GlucoseLevel.where(user_id: current_user.id)
-
+			end
 		end
-
-		@glucose_levels = GlucoseLevel.where(user_id: current_user.id).where(conditions)
-		
+		if current_user.role == User::ROLES[1]
+			@glucose_levels = GlucoseLevel.where(conditions)
+		else
+			@glucose_levels = GlucoseLevel.where(user_id: current_user.id).where(conditions)
+		end
+		 
 		respond_to do |format|
 			format.html
 			format.js { 

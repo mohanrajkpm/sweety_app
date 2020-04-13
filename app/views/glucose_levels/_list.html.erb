@@ -5,6 +5,9 @@
         <tr>
           <th scope="col">Levels</th>
           <th scope="col">Created at</th>
+          <% if current_user.role == User::ROLES[1] %>
+            <th scope="col">Patient</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -12,6 +15,9 @@
         <tr>
           <td><%= gl.glucose %></td>
           <td><%= gl.created_at.strftime("%Y-%m-%d") %></td>
+          <% if current_user.role == User::ROLES[1] %>
+            <td><%= gl.user.name %></td>
+          <% end %>
         </tr>
        <% end %>
       </tbody>
