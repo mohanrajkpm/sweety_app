@@ -1,8 +1,4 @@
-
-
-
-<div class="row">
-  
+<div class="row"> 
   <div class="col-9">
      <table class="table table-striped">
       <thead>
@@ -22,6 +18,8 @@
     </table>
   </div>
   <div class="col-3">
-
-    Maximum reading point: <%= glucose_max_level(@glucose_levels)%><br>Minimum reading point: <%= glucose_min_level(@glucose_levels)%><br>Average reading point: <%= glucose_avg_level(@glucose_levels)%></div>
+    <% if @glucose_levels.present? %>
+    Maximum reading point: <%= glucose_max_level(@glucose_levels)%><br>Minimum reading point: <%= glucose_min_level(@glucose_levels)%><br>Average reading point: <%= glucose_avg_level(@glucose_levels)%>
+    <% end %>
+  </div>
 </div>

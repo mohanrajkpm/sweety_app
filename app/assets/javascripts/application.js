@@ -22,8 +22,15 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 
 $(document).ready(function(){
- // $('#search_report_date').datepicker();
- $('#search_report_date').datepicker({
+	datePickerLoad();
+});
+
+$(document).on('turbolinks:load', function() {
+  datePickerLoad();
+});
+
+function datePickerLoad(){
+	$('#search_report_date').datepicker({
     format: 'yyyy-mm-dd'
  });
-});
+}
