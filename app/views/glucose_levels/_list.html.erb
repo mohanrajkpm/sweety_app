@@ -1,16 +1,27 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Levels</th>
-      <th scope="col">Created at</th>
-    </tr>
-  </thead>
-  <tbody>
-	<% @glucose_levels.each do |gl| %>
-    <tr>
-      <td><%= gl.glucose %></td>
-      <td><%= gl.created_at.strftime("%Y-%m-%d") %></td>
-    </tr>
-   <% end %>
-  </tbody>
-</table>
+
+
+
+<div class="row">
+  
+  <div class="col-9">
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Levels</th>
+          <th scope="col">Created at</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @glucose_levels.each do |gl| %>
+        <tr>
+          <td><%= gl.glucose %></td>
+          <td><%= gl.created_at.strftime("%Y-%m-%d") %></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-3">
+
+    Maximum reading point: <%= glucose_max_level(@glucose_levels)%><br>Minimum reading point: <%= glucose_min_level(@glucose_levels)%><br>Average reading point: <%= glucose_avg_level(@glucose_levels)%></div>
+</div>

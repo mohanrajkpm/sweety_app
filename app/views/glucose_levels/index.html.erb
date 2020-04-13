@@ -1,12 +1,13 @@
 <div class="container">
   <h1>Welcome to patient glucose levels report</h1>
 </div>
-<%= simple_form_for :search, url: glucose_levels_path, method: :get, remote: true,  html: { class: 'form-inline' } do |f| %>
+
+<%= simple_form_for :search, url: glucose_levels_path, method: :get, remote: true,  html: {autocomplete: 'off', class: 'form-inline' } do |f| %>
   <%= f.input :report_type, collection: report_collection, :prompt => "Choose a Report type"%>
   <%= f.input :report_date, label: "Report Date" %>
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 
 <div class= 'glucose_level_div'>
-  <%= render 'list' %>
+	<%= render 'list' %>
 </div>
