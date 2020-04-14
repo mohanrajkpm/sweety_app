@@ -13,19 +13,18 @@ class ApplicationController < ActionController::Base
   
   # get the beginning month of day
   def beginning_month_of_day ip_date
-  	actual_date = date_parse(ip_date)
-  	(Date.new(actual_date.year, actual_date.month)).strftime("%Y-%m-%d")
+  	date_parse(ip_date).strftime("%Y-%m-%d")
   end
 
   # get the end month of day
   def end_month_of_day ip_date
-  	actual_date = date_parse(ip_date)
-  	(Date.new(actual_date.year, actual_date.month)).end_of_month.strftime("%Y-%m-%d")
+  	date_parse(ip_date).end_of_month.strftime("%Y-%m-%d")
   end
 
   # parsing date from string
   def date_parse ip_str
-	Date.parse(ip_str)
+	  actual_date = Date.parse(ip_str)
+    (Date.new(actual_date.year, actual_date.month))
   end
 
   protected
