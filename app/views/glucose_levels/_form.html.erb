@@ -1,4 +1,4 @@
-<h1>Enter your glucose level</h1>
+<h3>Enter your glucose level</h3>
  
  <% if !!flash[:errors] %>
  	<div class="panel panel-warning errors">
@@ -16,10 +16,7 @@
 
 <%= simple_form_for @glucose_level, url: glucose_levels_path,
   wrapper: :horizontal_form do |f| %>
-
-
   <%= f.input :glucose %>
-
   <div class="form-group row mb-0">
     <div class="col-sm-9 offset-sm-3">
       <%= f.button :submit, class: "btn-primary" %>

@@ -1,10 +1,16 @@
 class GlucoseLevelsController < ApplicationController
-	#before_action :authenticate_user!
 	load_and_authorize_resource
+	
+	#Render new page
+	#
+	#Displaying new book page
 	def new
 		@glucose_level = GlucoseLevel.new
 	end
 	
+	#Render index page
+	#
+	#Displaying all books
 	def index
 		conditions = ''
 		if params[:search] && params[:search][:report_type] && params[:search][:report_date].present?
@@ -35,6 +41,9 @@ class GlucoseLevelsController < ApplicationController
     end
 	end
 
+	#Create a book.
+	#
+	#Create a book.
 	def create
 		@glucose_levels = GlucoseLevel.new(glucose_level_params)
 		if @glucose_levels.save
