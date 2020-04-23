@@ -3,22 +3,34 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Follow below steps to setup an application:
 
-* Ruby version
+* Create database => rails db:create
 
-* System dependencies
+* Do migration => rails db:migrate
 
-* Configuration
+* Seed role table data => rails db:seed
 
-* Database creation
+Follow below steps to run an application
 
-* Database initialization
+* Go to this Heroku url 
+ https://sleepy-gorge-73564.herokuapp.com/users/sign_in
 
-* How to run the test suite
+* Click on Sign up button
 
-* Services (job queues, cache servers, search engines, etc.)
+* Give input details role either user / doctor
 
-* Deployment instructions
+* Now go to login page
+
+* Enter created user details
+
+* As a logged in user can create the glucose level
+
+* User can see the reports when go to menu reports
+
+* User can see only reports page when logged in as doctor role
+
+
+
 
 * ...
