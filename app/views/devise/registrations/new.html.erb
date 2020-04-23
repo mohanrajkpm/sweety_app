@@ -23,7 +23,8 @@
         </div>
 
         <div class="field">
-          <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
+          <%= f.label :role %> 
+          <%= f.collection_select(:role_id, Role.all, :id, :name) %>
         </div>
 
         <div class="field">

@@ -33,13 +33,10 @@ class Ability
 
     if user.present?  # additional permissions for logged in users (they can read their own posts)
 
-      if user.role == User::ROLES[1]  # additional permissions for administrators
-        can :read, GlucoseLevel
-      end
+      # additional permissions for administrators
+      can :read, GlucoseLevel if user.is_doctor?
 
-      if user.role == User::ROLES[0]
-        can :manage,  GlucoseLevel
-      end
+      can :manage,  GlucoseLevel if user.is_user?
     end
   end
 end

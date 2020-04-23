@@ -21,7 +21,7 @@ module Filterable
             end
             results = self.where(nil)
             user = User.find(params[:user_id])
-            if user.role == User::ROLES[1]
+            if user.is_doctor?
                 results.where(conditions)
             else
                 results.where(user_id: params[:user_id]).where(conditions)

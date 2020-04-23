@@ -18,7 +18,7 @@ class GlucoseLevelsController < ApplicationController
 			format.js { 
 				render 'list'
 			 }
-    end
+    	end
 	end
 
 	#Create a book.
@@ -31,13 +31,13 @@ class GlucoseLevelsController < ApplicationController
 			redirect_to new_glucose_level_path
 		else
 			flash[:errors] = @glucose_levels.errors.full_messages
-	  redirect_to new_glucose_level_path
+	  		redirect_to new_glucose_level_path
 		end
 	end
 
 	private
 		# permit the glucose level params
-    def glucose_level_params
-  		params.require(:glucose_level).permit(:glucose).merge(user_id: current_user.id)
+    	def glucose_level_params
+  			params.require(:glucose_level).permit(:glucose).merge(user_id: current_user.id)
 		end
 end
