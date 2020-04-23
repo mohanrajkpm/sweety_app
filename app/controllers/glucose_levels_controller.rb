@@ -12,27 +12,7 @@ class GlucoseLevelsController < ApplicationController
 	#
 	#Displaying all books
 	def index
-		conditions = ''
-		if params[:search] && params[:search][:report_type] && params[:search][:report_date].present?
-			report_type = params[:search][:report_type]
-			report_date = params[:search][:report_date]
-			if report_type == helpers.report_collection[:Today]
-				conditions = ["Date(created_at) = '#{report_date}'"]
-			elsif report_type == helpers.report_collection[:"Month to date"]
-				month_of_day = beginning_month_of_day report_date
-				conditions = ["Date(created_at) BETWEEN '#{month_of_day}' AND '#{report_date}' "]
-			elsif report_type == helpers.report_collection[:"Month report"]
-				beginning_of_day = beginning_month_of_day report_date	
-				end_of_day = end_month_of_day report_date 
-				conditions = ["Date(created_at) BETWEEN '#{beginning_of_day}' AND '#{end_of_day}' "]
-			end
-		end
-		if current_user.role == User::ROLES[1]
-			@glucose_levels = GlucoseLevel.where(conditions)
-		else
-			@glucose_levels = GlucoseLevel.where(user_id: current_user.id).where(conditions)
-		end
-		 
+		@glucose_levels = GlucoseLevel.filter(params.slice(:search).merge(user_id: current_user.id), helpers.report_collection)
 		respond_to do |format|
 			format.html
 			format.js { 
