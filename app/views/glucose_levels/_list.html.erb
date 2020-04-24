@@ -24,8 +24,10 @@
     </table>
   </div>
   <div class="col-3">
-    <% if @glucose_levels.present? %>
-    
+    <% if @glucose_levels.present? && @glucose_revisions.present? %>
+    Maximum glucose level: <%= @glucose_revisions[:max_glucose]%><br>
+    Minimum glucose level: <%= @glucose_revisions[:min_glucose]%><br>
+    Average glucose level: <%= @glucose_revisions[:avg_glucose]%>
     <% end %>
   </div>
 </div>
