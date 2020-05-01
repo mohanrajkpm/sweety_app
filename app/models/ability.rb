@@ -34,9 +34,9 @@ class Ability
     if user.present?  # additional permissions for logged in users (they can read their own posts)
 
       # additional permissions for administrators
-      can :read, GlucoseLevel if user.is_doctor?
+      can :read, GlucoseLevel if user.has_role?('doctor')
 
-      can :manage,  GlucoseLevel if user.is_user?
+      can :manage,  GlucoseLevel if user.has_role?('user')
     end
   end
 end

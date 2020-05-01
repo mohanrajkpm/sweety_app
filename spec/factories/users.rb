@@ -3,6 +3,6 @@ FactoryBot.define do
     sequence(:name) { |n| "#{('a'..'z').to_a.shuffle.join}#{n}"}
     email { "#{name}@gmail.com"}
     password {"12345678"}
-    role {"user"}
+    association :role_id, factory: :role
   end
 end

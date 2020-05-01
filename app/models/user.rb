@@ -9,9 +9,9 @@ class User < ApplicationRecord
     self.role.name == user_role
   end
 
-  Role.all.each do |role|
-    define_method "is_#{role.name}?" do
-      has_role?(role.name)
-    end
-  end
+  # Role.all.each do |role|
+  #   define_method "is_#{role.name}?" do
+  #     has_role?(role.name)
+  #   end
+  # end
 end

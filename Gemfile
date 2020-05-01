@@ -48,11 +48,11 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem "factory_bot_rails"
+  gem 'pry'
 end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'pry'
 end
 
 group :development do
@@ -70,3 +70,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
  gem 'pg'
 end
+gem 'simplecov', require: false, group: :test
