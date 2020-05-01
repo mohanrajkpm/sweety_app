@@ -81,6 +81,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.logger = Logger.new(STDOUT)
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
@@ -90,6 +91,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.assets.digest = true
 end
