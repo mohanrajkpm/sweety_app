@@ -24,7 +24,7 @@
 
         <div class="field">
           <%= f.label :role %> 
-          <%= f.collection_select(:role_id, Role.all, :id, :name) %>
+          <%= f.collection_select(:role, Role.all, :id, :name) %>
         </div>
 
         <div class="field">
