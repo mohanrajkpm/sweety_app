@@ -13,6 +13,7 @@ class GlucoseLevelsController < ApplicationController
 	#Displaying all books
 	def index
 		@glucose_levels = GlucoseLevel.filter(params.slice(:search).merge(user_id: current_user.id), helpers.report_collection)
+		# calculate glucose level -- service object calling --
 		@glucose_revisions = CalculateService.new.cal_glucose_revision(@glucose_levels)
 		respond_to do |format|
 			format.html
