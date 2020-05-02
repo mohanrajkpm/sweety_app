@@ -1,3 +1,4 @@
+<% presenter = UserPresenter.new(current_user) %>
 <div class="row"> 
   <div class="col-9">
      <table class="table table-striped">
@@ -5,7 +6,7 @@
         <tr>
           <th scope="col">Levels</th>
           <th scope="col">Created at</th>
-          <% if current_user.has_role?('doctor') %>
+          <% if presenter.has_doctor? %>
             <th scope="col">Patient</th>
           <% end %>
         </tr>
@@ -15,7 +16,7 @@
         <tr>
           <td><%= gl.glucose %></td>
           <td><%= gl.created_at.strftime("%Y-%m-%d") %></td>
-          <% if current_user.has_role?('doctor') %>
+          <% if presenter.has_doctor? %>
             <td><%= gl.user.name %></td>
           <% end %>
         </tr>
